@@ -6,25 +6,35 @@ To get started with TDD, see the `README.md` file in your
 `ruby/matrix` directory.
 =end
 
-class Matrix(input_string)
-    def initialize
-        @string = input_string
-    end
+class Matrix
+  def initialize(input_string)
+    @string = input_string
+  end
 
-    
-    def row(n)
-        row = @string.split(/\n/)[n].split.map(&:to_i)
-        row
+  def rows
+    rows_string = @string.split(/\n/)
+    rows_array = []
+    rows_string.each do |row|
+      rows_array << row.split.map(&:to_i)
     end
+    rows_array
+  end
 
-    def column(n)
-        array_of_rows = @string.split
-        column = ""
-        array_of_rows.each do |row|
-            column << row[n]
-        end
-        column = column.split.map(&:to_i)
-        column
+  def columns
+    rows_string = @string.split(/\n/)
+    rows_array = []
+    rows_string.each do |row|
+      rows_array << row.split.map(&:to_i)
     end
+    columns_array = []
+    no_columns = rows_array[0].length
+    no_columns.times do |column|
+        current_column =[]
+      rows_array.each do |row|
+        current_column << row[column]
+      end
+      columns_array << current_column
+    end
+    columns_array
+  end
 end
-
