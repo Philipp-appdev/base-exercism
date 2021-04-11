@@ -11,6 +11,7 @@ class Matrix(input_string)
         @string = input_string
     end
 
+    
     def row(n)
         row = @string.split(/\n/)[n].split.map(&:to_i)
         row
@@ -23,5 +24,7 @@ class Matrix(input_string)
             column << row[n]
         end
         column = column.split.map(&:to_i)
+        column
     end
 end
+
