@@ -22,8 +22,8 @@ class TwelveDays
         input_string = "#{input_string}and #{input_gift[0]}"
       end
 
-      final_output << "On the #{input_day[day]} day of Christmas my true love gave to me: #{input_string}.\n"
+      final_output << "On the #{input_day[day]} day of Christmas my true love gave to me: #{input_string}.\n\n"
     end
-    puts final_output
+    final_output.chomp
   end
 end
